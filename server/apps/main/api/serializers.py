@@ -33,3 +33,9 @@ class UploadFileUpdateSerializer(ModelSerializer):
         model = models.UploadFile
         fields = '__all__'
         lookup_field = 'id'
+
+
+class UploadFileSerializer(ModelSerializer):
+    class Meta:
+        model = models.UploadFile
+        fields = '__all__'
