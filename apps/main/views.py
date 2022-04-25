@@ -11,10 +11,12 @@ class Index(View):
         return render(request, 'main/index.html',context)
 
     def post(self, request):
-        form = forms.Upload(request.POST)
+        context={'upload_form':forms.Upload}
+        form = forms.Upload(request.POST, request.FILES)
         if form.is_valid():
-            data = form.cleaned_data
-            file_name = data['file']
+            file = request.FILES['file']
+            file = file.chunks(chunk_size=None)
+            file_name = file.name
             print(file_name)
-        return render(request, 'main/index.html')
+        return render(request, 'main/index.html',context)
         

@@ -18,6 +18,7 @@
           </div>
           <form method="Post" action="">
               {% csrf_token %}
+            {{upload_form.file}}
             <p>
               <label for="upload-fiels" id="file-browser">browse</label> your computer and upload.</p>
               <input type="submit" class="d-block btn btn-primary" value="Upload">

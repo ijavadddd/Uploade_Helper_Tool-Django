@@ -2,6 +2,11 @@ from django.db import models
 
 # Create your models here.
 
-class Upload(models.Model):
-    url = models.CharField(max_length=550)
-    upload_date = models.DateField(auto_now_add=True)
+class UploadFile(models.Model):
+    id = models.AutoField(primary_key=True)
+    file = models.FileField(upload_to='documents/')
+    description = models.TextField(blank=True, default=None)
+    uploadDate = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.uploadDate}'
