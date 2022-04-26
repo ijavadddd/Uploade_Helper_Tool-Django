@@ -1,6 +1,7 @@
 from django import forms
 from . import models
 
+# Form model of UploadFile model for use in UI Uploader
 class UploadForm(forms.ModelForm):
 
     class Meta:

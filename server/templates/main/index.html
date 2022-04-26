@@ -6,6 +6,7 @@
 {% endblock head %}
 
 {% block body %}
+{% comment %} Upload Box {% endcomment %}
 <div class="wrapper">
     <div class="container">
       <h1>Upload a file</h1>
@@ -27,18 +28,19 @@
       </div>
     </div>
   </div>
-
-  <div class="container-fluid mt-2">
-    <div class="container">
+  {% comment %}help Container of each section of project {% endcomment %}
+  <div class="container-fluid mt-2 mb-5">
+    <div class="container fs-5">
       <div class="col-12">
         <h2 class="fs-4 text-danger">Use cli.py :</h2>
-        <p class="fs-5">With <code>cli.py</code> U can upload your file by script and with <code>py manage.py -f &lt;your file Name&gt;</code></p>
+        <p class="">With <code>cli.py</code> U can upload your file by script and with <code>py manage.py -f &lt;your_file_Name&gt;</code></br>
+        You have <code>cli.py</code> in client folder but if you miss it you can <a href="{{media}}files/cli.py" download>Download it here</a></p>
         <h2 class="fs-4 text-danger">Watch your objects :</h2>
-        <p class="fs-5">list of uploaded file in api format go to&nbsp;<a href="/api">list of objects</a></p>
+        <p class="">list of uploaded file in api format go to&nbsp;<a href="/api">list of objects</a></p>
         <h2 class="fs-4 text-danger">Use api page for upload :</h2>
-        <p class="fs-5">Upload files by api&nbsp;<a href="/api/create-new/">Upload file</a></p>
+        <p class="">Upload files by api&nbsp;<a href="/api/create-new/">Upload file</a></p>
         <h2 class="fs-4 text-danger">Update or Delete your objects :</h2>
-        <p class="fs-5">You can Update or Delete your objects , How? for delete use <code>delete/&lt;object id&gt;</code>&nbsp; and for update use <code>edit/&lt;object id&gt;</code> and if you wanna delete and update a object in a page use <code>manage/&lt;object id&gt;<p>
+        <p class="">You can Update or Delete your objects , How? for delete use <code>delete/&lt;object_id&gt;</code>&nbsp; and for update use <code>edit/&lt;object_id&gt;</code> and if you wanna delete and update an object in a page use <code>manage/&lt;object id&gt;<p>
       </div>
     </div>
   </div>
