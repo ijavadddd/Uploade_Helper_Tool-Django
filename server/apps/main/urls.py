@@ -5,6 +5,5 @@ from . import views
 
 urlpatterns= [
     path('',views.Index.as_view(),name='home')
-
 ]
 

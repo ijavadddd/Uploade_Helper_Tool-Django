@@ -17,7 +17,7 @@ class Index(View):
             # Save uploaded file to db as object
             models.UploadFile(file=request.FILES['file']).save()
 
-        # else:
+        # else:  # It' for debug
             # print(form.errors)
         context={'upload_form': forms.UploadForm}
         return render(request, 'main/index.html',context)
