@@ -19,6 +19,6 @@ class Index(View):
 
         # else:  # It' for debug
             # print(form.errors)
-        context={'upload_form': forms.UploadForm}
+        context={'upload_form': forms.UploadForm, 'media':settings.MEDIA_URL}
         return render(request, 'main/index.html',context)
         
