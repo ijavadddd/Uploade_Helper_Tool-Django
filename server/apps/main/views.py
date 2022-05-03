@@ -5,6 +5,8 @@ from . import forms
 from . import models
 from django.conf import settings
 from django.urls import reverse
+import os
+
 
 # This class will render Home page(UI Uploader)
 class Index(View):
@@ -19,7 +21,7 @@ class Index(View):
             # Save uploaded file to db as object
             newFile = models.UploadFile(file=request.FILES['file'])
             newFile.save()
-            uploadedFileDetail = list(str(newFile).split())
+            uploadedFileDetail = (str(newFile).split())
 
         # else:  # It' for debug
             # print(form.errors)
@@ -27,5 +29,15 @@ class Index(View):
         # successfullyUpload = reverse('success_upload')
         return render(request,'main/success_upload.html',context)
 
-
+import re
+class DeleteFile(View):
+    def get(self, request, fileId):
+        file = models.UploadFile.objects.filter(id=fileId)
+        fileAddress = str(file[0]).split()
+        fileAddress = fileAddress[1]
+        FILES_DIR = os.path.join(settings.MEDIA_ROOT,fileAddress)
+        os.remove(FILES_DIR)
+        file.delete()
+        return render(request, 'main/delete_file.html')
+        
 

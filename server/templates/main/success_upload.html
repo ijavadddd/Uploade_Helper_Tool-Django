@@ -15,7 +15,7 @@
                     <span class="fs-4 fw-bold">File Address :</span></br>
                     <input class="col-12 bg-dark text-white px-2 py-1 rounded" type="text" value="http://127.0.0.1:8000{{media}}{{uploaded_file_detail.url}}" id="link-input" readonly></br>
                     <button onclick="CopyFunction()" class="btn btn-primary my-2 d-inline-block ">Copy Text</button>
-                    <button class="btn btn-danger my-2 d-inline-block ms-3">Delete</a>
+                    <a href="{% url 'delete-file' fileId=uploaded_file_detail.id %}" class="btn btn-danger my-2 d-inline-block ms-3">Delete</a>
                 </div>                 
             </div>
         </div>
