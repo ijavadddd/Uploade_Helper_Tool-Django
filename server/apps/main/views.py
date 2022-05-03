@@ -1,4 +1,3 @@
-from posixpath import split
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.views import View
 from . import forms
@@ -26,10 +25,22 @@ class Index(View):
         # else:  # It' for debug
             # print(form.errors)
         context={'uploaded_file_detail': {'id':uploadedFileDetail[0], 'url':uploadedFileDetail[1], 'dateOfPublish':uploadedFileDetail[2]}, 'media':settings.MEDIA_URL}
-        # successfullyUpload = reverse('success_upload')
+        return redirect('upload-file',uploadedFileDetail[0])
+
+
+class SuccessUpload(View):
+    def get(self, request, fileId):
+        file = models.UploadFile.objects.filter(id=fileId)
+        fileDetail = str(file[0]).split()
+        context={
+        'uploaded_file_detail': {'id':fileDetail[0], 
+        'url':fileDetail[1], 
+        'dateOfPublish':fileDetail[2]}, 
+        'media':settings.MEDIA_URL
+        }
         return render(request,'main/success_upload.html',context)
 
-import re
+
 class DeleteFile(View):
     def get(self, request, fileId):
         file = models.UploadFile.objects.filter(id=fileId)
