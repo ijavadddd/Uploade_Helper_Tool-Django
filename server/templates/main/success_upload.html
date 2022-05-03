@@ -32,6 +32,15 @@
     console.log('Copied Text')
   }
   </script>
+  <script>
+    const inputValue ='http://127.0.0.1:8000{{media}}{{uploaded_file_detail.url}}'
+    Swal.fire({
+        title: 'Your file uploaded successfully',
+        input: 'text',
+        inputLabel: 'Your file address',
+        inputValue:inputValue ,
+      })
+  </script>
 {% endblock script %}
 
 
