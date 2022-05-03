@@ -1,0 +1,41 @@
+{% extends 'main\base.html' %}
+{% load static %}
+{% block head %}
+    <title>your file upload successfully</title>
+{% endblock head %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="container">
+        <div class="success-box bg-success col-12 col-md-6 mx-auto my-5 rounded shadow-lg py-2 px-4 text-white">
+            <h1 class="mx-auto">File uploaded successfully </h1>
+            <div class="detail-box">
+                <span>Data of publish :</span>&nbsp;<span>{{uploaded_file_detail.dateOfPublish}}</span></br>
+                <div class="download-link--box mt-2">
+                    <span class="fs-4 fw-bold">File Address :</span></br>
+                    <input class="col-12 bg-dark text-white px-2 py-1 rounded" type="text" value="http://127.0.0.1:8000{{media}}{{uploaded_file_detail.url}}" id="link-input" readonly></br>
+                    <button onclick="CopyFunction()" class="btn btn-primary my-2 d-inline-block ">Copy Text</button>
+                    <button class="btn btn-danger my-2 d-inline-block ms-3">Delete</a>
+                </div>                 
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}
+
+{% block script %}
+<script>
+    function CopyFunction() {
+    var copyText = document.getElementById('link-input')
+    copyText.select();
+    document.execCommand('copy')
+    console.log('Copied Text')
+  }
+  </script>
+{% endblock script %}
+
+
+
+
+
+

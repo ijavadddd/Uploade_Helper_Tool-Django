@@ -9,6 +9,6 @@ class UploadFile(models.Model):
     uploadDate = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'{self.uploadDate}'
+        return f'{self.id} {self.file} {self.uploadDate}'
 
 
