@@ -26,6 +26,7 @@
 {% endblock body %}
 
 {% block script %}
+{% comment %} Function that will copy uploaded file url by press copy text button {% endcomment %}
 <script>
     function Copy() {
     var copyText = document.getElementById('link-input')
@@ -33,16 +34,17 @@
     document.execCommand('copy')
     console.log('Copied Text')
   }
-  function Delete(){
+
+  {% comment %} function Delete(){
       swal.fire({
           title : 'Do you want <span class="text-danger">delete</span> your file ?',
           showCancelButton : true,
           confirmButtonText : 'Delete',
           usConfirmed : 'BAshe',
       })
-  }
-  </script>
-  <script>
+  } {% endcomment %}
+
+{% comment %} This is that alert showed when file uploaded successfully {% endcomment %}
     const inputValue ='http://127.0.0.1:8000{{media}}{{uploaded_file_detail.url}}'
     Swal.fire({
         title: '<p class="text-success">Your file uploaded successfully</p>',

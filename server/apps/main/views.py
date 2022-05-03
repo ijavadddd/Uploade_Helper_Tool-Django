@@ -1,9 +1,8 @@
-from django.shortcuts import render, redirect, HttpResponseRedirect
+from django.shortcuts import render, redirect
 from django.views import View
 from . import forms
 from . import models
 from django.conf import settings
-from django.urls import reverse
 import os
 
 
@@ -28,6 +27,7 @@ class Index(View):
         return redirect('upload-file',uploadedFileDetail[0])
 
 
+# This class will render successfull upload page that contain detail and url of file
 class SuccessUpload(View):
     def get(self, request, fileId):
         file = models.UploadFile.objects.filter(id=fileId)
@@ -41,6 +41,7 @@ class SuccessUpload(View):
         return render(request,'main/success_upload.html',context)
 
 
+# Delete file page
 class DeleteFile(View):
     def get(self, request, fileId):
         file = models.UploadFile.objects.filter(id=fileId)

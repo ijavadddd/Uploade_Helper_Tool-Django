@@ -7,8 +7,8 @@
 {% block body %}
 <div class="container-fluid">
     <div class="container">
+        {% comment %} back button {% endcomment %}
         <button onclick="window.history.go(-2)" class="back-button"><i class="bi bi-arrow-left-circle-fill"></i></button>
-
         <div class="bg-danger col-12 col-md-6 mx-auto my-5 rounded shadow-lg py-2 px-4 text-white">
             <h1 class="mx-auto">File deleted successfully </h1>
             <a href="/" class="btn btn-primary fs-4 my-3">Back</a>
@@ -19,14 +19,7 @@
 
 {% block script %}
 <script>
-    function CopyFunction() {
-    var copyText = document.getElementById('link-input')
-    copyText.select();
-    document.execCommand('copy')
-    console.log('Copied Text')
-  }
-  </script>
-  <script>
+{% comment %} The alert showed when files delete {% endcomment %}
       swal.fire({
           title : 'Your file deleted',
           text : 'You successfully delete your file.',
